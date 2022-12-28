@@ -1,3 +1,4 @@
 postgresql_credentials.json
 Indeed_scraping.ipynb
 venv/
+__pycache__
