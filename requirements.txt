@@ -1,0 +1,6 @@
+pandas == 1.5.1
+psycopg2-binary == 2.9.5
+SQLAlchemy == 1.4.42
+selenium == 4.5.0
+beautifulsoup4 == 4.11.1
+webdriver-manager == 3.8.5
