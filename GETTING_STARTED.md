@@ -73,6 +73,12 @@ Also edit `postgresql.conf` file, so you can connect from any address :
 listen_addresses = '*' 
 ```
 
+## Clone the repository 
+`
+```shell
+git clone git@github.com:vinthara/indeed_offers.git
+```
+
 ## Create `.pg_service.conf` service connection file
 
 Edit the `.pg_service_sample.conf` file accordingly : 
