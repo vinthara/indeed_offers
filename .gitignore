@@ -1,5 +1,6 @@
 postgresql_credentials.json
 Indeed_scraping.ipynb
+.ipynb_checkpoints/
 venv/
 __pycache__
 .pg_service.conf
