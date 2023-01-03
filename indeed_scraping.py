@@ -25,6 +25,23 @@ from webdriver_manager.chrome import ChromeDriverManager
 offer_age = 1
 
 def scrap_offer_indeed(list_keyword, offer_age, indeed_country, headless=True):
+    """Scrap indeed offers using chrome browser.
+
+    Args:
+        list_keyword: word that will be searched in indeed.
+        offer_age: age of offer in days.
+        indeed_country: 2-length string country to be used in url.
+        headless: whether to open a chrome browser or not, default set to True.
+    
+    Returns:
+        soup_list: list of html strings to be parsed.
+
+    Example:
+        This example will scrap offers from the last 3 days of web developper, data analyst in the United Kingdom. 
+
+        scrap_offer_indeed(["web developper", "data analyst"], 3, "uk", False)
+
+    """
     chrome_options = Options()
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("window-size=1024,768")
@@ -75,7 +92,17 @@ def scrap_offer_indeed(list_keyword, offer_age, indeed_country, headless=True):
     return soup_list
 
 def parse_indeed_soup(soup_list, indeed_country):
+    """Parse the indeed offers to readable pandas DataFrame.
 
+    Args:
+        soup_list: list of html strings to be parsed.
+        indeed_country: 2-length string country to be used in url
+    
+    Returns:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    """
     id_list = []
     job_title_list = []
     company_name_list = []
@@ -162,6 +189,14 @@ def parse_indeed_soup(soup_list, indeed_country):
     return df_jobs, df_tags
 
 def insert_and_update_table(df_jobs, df_tags):
+    """Insert new rows and update existing rows to the jobs and tags table given a .json connection file.
+
+    Args:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    """
+
     with open("postgresql_credentials.json") as f:
         creds = json.load(f)
     
@@ -233,7 +268,21 @@ def insert_and_update_table(df_jobs, df_tags):
             cur.execute(sql_insert_tags)
 
 def get_id_and_url_indeed_description_to_scrap(n_offers):
+    """Scrap latest full description of indeed offers.
 
+    Args:
+        n_offers: number of description to be scraped.
+
+    Returns:
+        id_list: list of id of the indeed offers.
+        url_list: list of url of the indeed offers.
+
+    Example:
+        Get the 10 latest id and url of the indeed offers.
+
+        get_id_and_url_indeed_description_to_scrap(1O)
+    
+    """
     with open("postgresql_credentials.json") as f:
         creds = json.load(f)
         
@@ -249,10 +298,32 @@ def get_id_and_url_indeed_description_to_scrap(n_offers):
     
     with engine.begin() as conn_alchemy:
         df = pd.read_sql(sql_query, conn_alchemy)
+
+    id_list = df["id"].to_list()
+    url_list = df["url"].to_list()
     
-    return df["id"].to_list(), df["url"].to_list()
+    return id_list, url_list
 
 def scrap_indeed_description(id_offers_to_scrap, url_offers_to_scrap, headless=True):
+    """Scrap indeed description using chrome browser.
+
+    Args:
+        id_offers_to_scrap: word that will be searched in indeed.
+        url_offers_to_scrap: age of offer in days.
+        headless: whether to open a chrome browser or not, default set to True.
+    
+    Returns:
+        df_description: pandas DataFrame id, url and the verbose description of an offer.
+
+    Example:
+        This example will scrap the full description of those 2 offers id, note the fr country in the url. 
+
+        scrap_indeed_description(
+            ['24beaf6498294e77', '60c4fa9e88ed2de9'], 
+            ['https://fr.indeed.com/viewjob?jk=24beaf6498294e77','https://fr.indeed.com/viewjob?jk=60c4fa9e88ed2de9'], 
+            False)
+
+    """
     chrome_options = Options()
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("window-size=1024,768")
@@ -311,6 +382,13 @@ def scrap_indeed_description(id_offers_to_scrap, url_offers_to_scrap, headless=T
     return df_description
 
 def update_indeed_description_verbose(df_description):
+    """Update description_verbose rows in the jobs table given a .json connection file.
+
+    Args:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    """
     with open("postgresql_credentials.json") as f:
         creds = json.load(f)
     
