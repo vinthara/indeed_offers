@@ -4,3 +4,4 @@ Indeed_scraping.ipynb
 venv/
 __pycache__
 .pg_service.conf
+.obsidian/
