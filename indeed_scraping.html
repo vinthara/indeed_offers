@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>indeed_scraping API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>indeed_scraping</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import time
+import json
+import pandas as pd
+import re
+import requests
+import datetime
+import os
+import psycopg2
+
+from random import randrange
+from bs4 import BeautifulSoup
+from sqlalchemy import create_engine
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+
+offer_age = 1
+
+def scrap_offer_indeed(list_keyword, offer_age, indeed_country, headless=True):
+    &#34;&#34;&#34;Scrap indeed offers using chrome browser.
+
+    Args:
+        list_keyword: word that will be searched in indeed.
+        offer_age: age of offer in days.
+        indeed_country: 2-length string country to be used in url.
+        headless: whether to open a chrome browser or not, default set to True.
+    
+    Returns:
+        soup_list: list of html strings to be parsed.
+
+    Example:
+        This example will scrap offers from the last 3 days of web developper, data analyst in the United Kingdom. 
+
+        scrap_offer_indeed([&#34;web developper&#34;, &#34;data analyst&#34;], 3, &#34;uk&#34;, False)
+
+    &#34;&#34;&#34;
+    chrome_options = Options()
+    chrome_options.add_argument(&#34;--disable-gpu&#34;)
+    chrome_options.add_argument(&#34;window-size=1024,768&#34;)
+    chrome_options.add_argument(&#34;--no-sandbox&#34;)
+    if headless:
+        chrome_options.add_argument(&#34;--headless&#34;)
+    user_agent = &#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36&#39;
+    chrome_options.add_argument(f&#39;user-agent={user_agent}&#39;)
+    
+    s = ChromeService(ChromeDriverManager().install())
+                      
+    driver = webdriver.Chrome(service=s, options=chrome_options)
+    cookies_clicked_already = False
+    soup_list = []
+    
+    for keyword in list_keyword:
+        url_base = f&#34;https://{indeed_country}.indeed.com&#34;
+        url_param = f&#34;/jobs?q={keyword}&amp;fromage={offer_age}&#34;
+
+        while url_param:
+            url = url_base + url_param
+            driver.get(url)
+
+            html_text = driver.page_source
+            soup = BeautifulSoup(html_text, &#39;html.parser&#39;)
+
+            if not cookies_clicked_already:
+                for button in soup.find_all(&#34;button&#34;):
+                    if &#34;All Cookies&#34; in button.text or &#34;les cookies&#34; in button.text:
+                        break
+                if button.attrs.get(&#34;id&#34;):
+                    button_class = button.attrs[&#34;id&#34;]
+                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, f&#39;button[id=&#34;{button_class}&#34;]&#39;))).click()
+                    seconds = 3 + randrange(5, 11)/10
+                    time.sleep(seconds)
+                cookies_clicked_already = True
+
+            html_text = driver.page_source
+            soup = BeautifulSoup(html_text, &#39;html.parser&#39;)
+
+            param = soup.find(&#34;nav&#34;, {&#34;role&#34;:&#34;navigation&#34;}).find(&#34;a&#34;, {&#34;aria-label&#34;:&#34;Next Page&#34;}) 
+            if param:
+                url_param = param[&#34;href&#34;]
+            else:
+                url_param = None
+            soup_list.append(soup)
+    driver.close()
+    return soup_list
+
+def parse_indeed_soup(soup_list, indeed_country):
+    &#34;&#34;&#34;Parse the indeed offers to readable pandas DataFrame.
+
+    Args:
+        soup_list: list of html strings to be parsed.
+        indeed_country: 2-length string country to be used in url
+    
+    Returns:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    &#34;&#34;&#34;
+    id_list = []
+    job_title_list = []
+    company_name_list = []
+    job_location_list = []
+    description_snippet_list = []
+    rating_list = []
+    scraped_at_list = []
+    url_list = []
+    list_dict_tag = []
+
+    for s in soup_list:
+        soup_beacon = s.find_all(&#34;div&#34;, {&#34;class&#34;:&#34;job_seen_beacon&#34;})
+        for soup in soup_beacon:
+            id_ = soup.a[&#34;data-jk&#34;]
+
+            job_title = soup.find(&#34;span&#34;, {&#34;title&#34;:True})
+            company_name = soup.find(&#34;span&#34;, {&#34;class&#34;:&#34;companyName&#34;})
+            job_location = soup.find(&#34;div&#34;, {&#34;class&#34;:&#34;companyLocation&#34;})
+            rating = soup.find(&#34;span&#34;, {&#34;class&#34;:&#34;ratingNumber&#34;})
+            scraped_at = datetime.datetime.now().replace(microsecond=0)
+            url = f&#39;https://{indeed_country}.indeed.com/viewjob?jk={id_}&#39;
+            
+            id_list.append(id_)
+            url_list.append(url)
+            
+            if job_title:
+                job_title_list.append(job_title.text)
+            else:
+                job_title_list.append(None)
+
+            if company_name:
+                company_name_list.append(company_name.text)
+            else:
+                company_name_list.append(None)
+
+            if job_location:
+                job_location_list.append(job_location.text)
+            else:
+                job_location_list.append(None)
+
+            if rating:
+                rating_list.append(rating.text)
+            else:
+                rating_list.append(None)
+
+            scraped_at_list.append(scraped_at)
+
+            # Job tags
+            soup_tag = soup.find_all(&#34;div&#34;, {&#34;class&#34;:&#34;attribute_snippet&#34;})
+            for ele in soup_tag:
+                list_dict_tag.append(
+                    {
+                        &#34;id_job&#34;:id_,
+                        &#34;job_tag&#34;:ele.text.replace(&#39;\xa0&#39;, &#39; &#39;)
+                    }
+                )
+
+            description_snippet = soup.find(&#34;div&#34;, {&#34;class&#34;:&#34;job-snippet&#34;})
+
+
+            if description_snippet:
+                description_snippet_list.append(description_snippet.text.strip().replace(u&#39;\xa0&#39;, u&#39; &#39;))
+            else:
+                description_snippet_list.append(None)
+
+    dict_jobs = {
+        &#34;id&#34;:id_list,
+        &#34;job_title&#34;:job_title_list,
+        &#34;company_name&#34;:company_name_list,
+        &#34;job_location&#34;:job_location_list,
+        &#34;description_snippet&#34;:description_snippet_list,
+        &#34;company_rating&#34;:rating_list,
+        &#34;scraped_at&#34;:scraped_at_list,
+        &#34;url&#34;:url_list
+    }
+
+    df_jobs = pd.DataFrame(dict_jobs)
+    df_jobs = df_jobs.drop_duplicates(subset=&#39;id&#39;)
+    df_jobs[&#34;company_rating&#34;] = df_jobs[&#34;company_rating&#34;].str.replace(&#34;,&#34;,&#34;.&#34;).astype(&#34;float&#34;)
+    
+    df_tags = pd.DataFrame(list_dict_tag)
+    df_tags = df_tags.drop_duplicates(subset=[&#39;id_job&#39;, &#39;job_tag&#39;])
+    
+    return df_jobs, df_tags
+
+def insert_and_update_table(df_jobs, df_tags):
+    &#34;&#34;&#34;Insert new rows and update existing rows to the jobs and tags table given a .json connection file.
+
+    Args:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    &#34;&#34;&#34;
+
+    with open(&#34;postgresql_credentials.json&#34;) as f:
+        creds = json.load(f)
+    
+    conn_string = f&#39;postgresql://{creds[&#34;username&#34;]}:{creds[&#34;password&#34;]}@{creds[&#34;host&#34;]}/{creds[&#34;database&#34;]}&#39;
+
+    engine = create_engine(conn_string)
+    
+    with engine.begin() as conn_alchemy:
+        df_jobs.to_sql(&#39;jobs_to_add&#39;, conn_alchemy, if_exists=&#39;replace&#39;)
+        df_tags.to_sql(&#39;tags_to_add&#39;, conn_alchemy, if_exists=&#39;replace&#39;)
+    sql_insert_and_update_jobs = &#34;&#34;&#34;
+    INSERT INTO jobs (id, job_title, company_name, description_snippet, company_rating, scraped_at, url)
+    SELECT 
+        new.id,
+        new.job_title,
+        new.company_name,
+        new.description_snippet,
+        new.company_rating,
+        new.scraped_at,
+        new.url
+    FROM jobs_to_add AS new
+    LEFT JOIN jobs ON jobs.id = new.id
+    WHERE jobs.id IS NULL;
+
+    WITH jobs_to_update AS (
+        SELECT
+            new.id,
+            new.job_title,
+            new.company_name,
+            new.description_snippet,
+            new.company_rating,
+            new.scraped_at
+        FROM jobs_to_add AS new
+        INNER JOIN jobs ON jobs.id = new.id
+    ) 
+    UPDATE jobs
+    SET 
+        job_title = jobs_to_update.job_title,
+        company_name = jobs_to_update.company_name,
+        description_snippet = jobs_to_update.description_snippet,
+        company_rating = jobs_to_update.company_rating
+    FROM jobs_to_update
+    WHERE jobs.id = jobs_to_update.id;
+
+    DROP TABLE jobs_to_add;
+    &#34;&#34;&#34;
+    sql_insert_tags = &#34;&#34;&#34;
+    INSERT INTO tags (id_job, job_tag)
+    SELECT 
+        new.id_job,
+        new.job_tag
+    FROM tags_to_add AS new
+    LEFT JOIN tags ON tags.id_job = new.id_job
+    WHERE tags.id_job IS NULL;
+
+    DROP TABLE tags_to_add;
+    &#34;&#34;&#34;
+    conn = psycopg2.connect(
+        dbname=creds[&#34;database&#34;],
+        user=creds[&#34;username&#34;],
+        password=creds[&#34;password&#34;],
+        host=creds[&#34;host&#34;]
+    )
+
+
+    with conn:
+        with conn.cursor() as cur:
+            cur.execute(sql_insert_and_update_jobs)
+            cur.execute(sql_insert_tags)
+
+def get_id_and_url_indeed_description_to_scrap(n_offers):
+    &#34;&#34;&#34;Scrap latest full description of indeed offers.
+
+    Args:
+        n_offers: number of description to be scraped.
+
+    Returns:
+        id_list: list of id of the indeed offers.
+        url_list: list of url of the indeed offers.
+
+    Example:
+        Get the 10 latest id and url of the indeed offers.
+
+        get_id_and_url_indeed_description_to_scrap(1O)
+    
+    &#34;&#34;&#34;
+    with open(&#34;postgresql_credentials.json&#34;) as f:
+        creds = json.load(f)
+        
+    conn_string = f&#39;postgresql://{creds[&#34;username&#34;]}:{creds[&#34;password&#34;]}@{creds[&#34;host&#34;]}/{creds[&#34;database&#34;]}&#39;
+
+    engine = create_engine(conn_string)
+    sql_query = f&#34;&#34;&#34;
+    SELECT id, url FROM jobs
+    WHERE description_verbose IS NULL
+    ORDER BY updated_at DESC
+    LIMIT {n_offers}
+    &#34;&#34;&#34;
+    
+    with engine.begin() as conn_alchemy:
+        df = pd.read_sql(sql_query, conn_alchemy)
+
+    id_list = df[&#34;id&#34;].to_list()
+    url_list = df[&#34;url&#34;].to_list()
+    
+    return id_list, url_list
+
+def scrap_indeed_description(id_offers_to_scrap, url_offers_to_scrap, headless=True):
+    &#34;&#34;&#34;Scrap indeed description using chrome browser.
+
+    Args:
+        id_offers_to_scrap: word that will be searched in indeed.
+        url_offers_to_scrap: age of offer in days.
+        headless: whether to open a chrome browser or not, default set to True.
+    
+    Returns:
+        df_description: pandas DataFrame id, url and the verbose description of an offer.
+
+    Example:
+        This example will scrap the full description of those 2 offers id, note the fr country in the url. 
+
+        scrap_indeed_description(
+            [&#39;24beaf6498294e77&#39;, &#39;60c4fa9e88ed2de9&#39;], 
+            [&#39;https://fr.indeed.com/viewjob?jk=24beaf6498294e77&#39;,&#39;https://fr.indeed.com/viewjob?jk=60c4fa9e88ed2de9&#39;], 
+            False)
+
+    &#34;&#34;&#34;
+    chrome_options = Options()
+    chrome_options.add_argument(&#34;--disable-gpu&#34;)
+    chrome_options.add_argument(&#34;window-size=1024,768&#34;)
+    chrome_options.add_argument(&#34;--no-sandbox&#34;)
+    if headless:
+        chrome_options.add_argument(&#34;--headless&#34;)
+    user_agent = &#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36&#39;
+    chrome_options.add_argument(f&#39;user-agent={user_agent}&#39;)
+
+    s = ChromeService(ChromeDriverManager().install())
+
+    driver = webdriver.Chrome(service=s, options=chrome_options)
+    
+    description_verbose_list = []
+    
+    cookies_clicked_already = False
+    for url in url_offers_to_scrap:     
+        driver.get(url)
+        html_text = driver.page_source
+        
+        soup = BeautifulSoup(html_text, &#39;html.parser&#39;)   
+        
+
+        if not cookies_clicked_already:
+            button = None
+            
+            for button in soup.find_all(&#34;button&#34;):
+                if &#34;All Cookies&#34; in button.text or &#34;les cookies&#34; in button.text:
+                    break
+            if button:
+                if button.attrs.get(&#34;id&#34;):
+                    button_class = button.attrs[&#34;id&#34;]
+                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, f&#39;button[id=&#34;{button_class}&#34;]&#39;))).click()
+                    seconds = 3 + randrange(5, 11)/10
+                    time.sleep(seconds)
+            cookies_clicked_already = True
+
+        soup_description = soup.find_all(&#34;div&#34;,{&#34;id&#34;:&#34;jobDescriptionText&#34;})
+
+        for ele in soup_description:
+            if ele:
+                description_verbose_list.append(ele.text.replace(u&#39;\xa0&#39;, u&#39; &#39;))
+        if not ele:
+            description_verbose_list.append(None)
+        seconds = 3 + randrange(5, 11)/10
+        time.sleep(seconds)
+    driver.close()
+        
+    dict_description = {
+        &#34;id&#34;:id_offers_to_scrap,
+        &#34;url&#34;:url_offers_to_scrap,
+        &#34;description_verbose&#34;:description_verbose_list
+    }
+
+    df_description = pd.DataFrame(dict_description)
+    return df_description
+
+def update_indeed_description_verbose(df_description):
+    &#34;&#34;&#34;Update description_verbose rows in the jobs table given a .json connection file.
+
+    Args:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    &#34;&#34;&#34;
+    with open(&#34;postgresql_credentials.json&#34;) as f:
+        creds = json.load(f)
+    
+    conn_string = f&#39;postgresql://{creds[&#34;username&#34;]}:{creds[&#34;password&#34;]}@{creds[&#34;host&#34;]}/{creds[&#34;database&#34;]}&#39;
+
+    engine = create_engine(conn_string)
+    
+    with engine.begin() as conn_alchemy:
+        df_description.to_sql(&#39;description_verbose_to_update&#39;, conn_alchemy, if_exists=&#39;replace&#39;)
+        
+    conn = psycopg2.connect(
+        dbname=creds[&#34;database&#34;],
+        user=creds[&#34;username&#34;],
+        password=creds[&#34;password&#34;],
+        host=creds[&#34;host&#34;]
+    )
+
+
+    with conn:
+        with conn.cursor() as cur:
+            sql_update_description_verbose = &#34;&#34;&#34;
+            UPDATE jobs
+                SET description_verbose = d.description_verbose
+            FROM description_verbose_to_update AS d
+            WHERE jobs.id = d.id;
+            
+            DROP TABLE description_verbose_to_update;
+            &#34;&#34;&#34;
+            cur.execute(sql_update_description_verbose)
+
+if __name__ == &#39;__main__&#39;:
+    offer_age = 1
+    list_country = [&#39;fr&#39;, &#39;ca&#39;, &#39;uk&#39;, &#39;au&#39;]
+
+    # for indeed_country in list_country:
+    #     if indeed_country == &#39;fr&#39;:
+    #         list_keyword = [&#39;data&#39;, &#39;développeur web&#39;, &#39;designer UX/UI&#39;]
+    #     else:
+    #         list_keyword = [&#39;data&#39;, &#39;web developper&#39;, &#39;UX/UI designer&#39;]
+    #     soup_list = scrap_offer_indeed(list_keyword, offer_age, indeed_country, False)
+    #     df_jobs, df_tags = parse_indeed_soup(soup_list, indeed_country)
+    #     insert_and_update_table(df_jobs, df_tags)
+
+    # for i in range(130):
+    #     id_offers_to_scrap, url_offers_to_scrap = get_id_and_url_indeed_description_to_scrap(15)
+    #     if id_offers_to_scrap:
+    #         df_description = scrap_indeed_description(id_offers_to_scrap, url_offers_to_scrap, False)
+    #         update_indeed_description_verbose(df_description)
+    #     else:
+    #         break</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="indeed_scraping.get_id_and_url_indeed_description_to_scrap"><code class="name flex">
+<span>def <span class="ident">get_id_and_url_indeed_description_to_scrap</span></span>(<span>n_offers)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scrap latest full description of indeed offers.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>n_offers</code></strong></dt>
+<dd>number of description to be scraped.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>id_list</code></dt>
+<dd>list of id of the indeed offers.</dd>
+<dt><code>url_list</code></dt>
+<dd>list of url of the indeed offers.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<p>Get the 10 latest id and url of the indeed offers.</p>
+<p>get_id_and_url_indeed_description_to_scrap(1O)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_id_and_url_indeed_description_to_scrap(n_offers):
+    &#34;&#34;&#34;Scrap latest full description of indeed offers.
+
+    Args:
+        n_offers: number of description to be scraped.
+
+    Returns:
+        id_list: list of id of the indeed offers.
+        url_list: list of url of the indeed offers.
+
+    Example:
+        Get the 10 latest id and url of the indeed offers.
+
+        get_id_and_url_indeed_description_to_scrap(1O)
+    
+    &#34;&#34;&#34;
+    with open(&#34;postgresql_credentials.json&#34;) as f:
+        creds = json.load(f)
+        
+    conn_string = f&#39;postgresql://{creds[&#34;username&#34;]}:{creds[&#34;password&#34;]}@{creds[&#34;host&#34;]}/{creds[&#34;database&#34;]}&#39;
+
+    engine = create_engine(conn_string)
+    sql_query = f&#34;&#34;&#34;
+    SELECT id, url FROM jobs
+    WHERE description_verbose IS NULL
+    ORDER BY updated_at DESC
+    LIMIT {n_offers}
+    &#34;&#34;&#34;
+    
+    with engine.begin() as conn_alchemy:
+        df = pd.read_sql(sql_query, conn_alchemy)
+
+    id_list = df[&#34;id&#34;].to_list()
+    url_list = df[&#34;url&#34;].to_list()
+    
+    return id_list, url_list</code></pre>
+</details>
+</dd>
+<dt id="indeed_scraping.insert_and_update_table"><code class="name flex">
+<span>def <span class="ident">insert_and_update_table</span></span>(<span>df_jobs, df_tags)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Insert new rows and update existing rows to the jobs and tags table given a .json connection file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df_jobs</code></strong></dt>
+<dd>panda DataFrame with an indeed offer and overall information.</dd>
+<dt><strong><code>db_tags</code></strong></dt>
+<dd>panda DataFrame with job tags such as contract type, salary and more.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insert_and_update_table(df_jobs, df_tags):
+    &#34;&#34;&#34;Insert new rows and update existing rows to the jobs and tags table given a .json connection file.
+
+    Args:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    &#34;&#34;&#34;
+
+    with open(&#34;postgresql_credentials.json&#34;) as f:
+        creds = json.load(f)
+    
+    conn_string = f&#39;postgresql://{creds[&#34;username&#34;]}:{creds[&#34;password&#34;]}@{creds[&#34;host&#34;]}/{creds[&#34;database&#34;]}&#39;
+
+    engine = create_engine(conn_string)
+    
+    with engine.begin() as conn_alchemy:
+        df_jobs.to_sql(&#39;jobs_to_add&#39;, conn_alchemy, if_exists=&#39;replace&#39;)
+        df_tags.to_sql(&#39;tags_to_add&#39;, conn_alchemy, if_exists=&#39;replace&#39;)
+    sql_insert_and_update_jobs = &#34;&#34;&#34;
+    INSERT INTO jobs (id, job_title, company_name, description_snippet, company_rating, scraped_at, url)
+    SELECT 
+        new.id,
+        new.job_title,
+        new.company_name,
+        new.description_snippet,
+        new.company_rating,
+        new.scraped_at,
+        new.url
+    FROM jobs_to_add AS new
+    LEFT JOIN jobs ON jobs.id = new.id
+    WHERE jobs.id IS NULL;
+
+    WITH jobs_to_update AS (
+        SELECT
+            new.id,
+            new.job_title,
+            new.company_name,
+            new.description_snippet,
+            new.company_rating,
+            new.scraped_at
+        FROM jobs_to_add AS new
+        INNER JOIN jobs ON jobs.id = new.id
+    ) 
+    UPDATE jobs
+    SET 
+        job_title = jobs_to_update.job_title,
+        company_name = jobs_to_update.company_name,
+        description_snippet = jobs_to_update.description_snippet,
+        company_rating = jobs_to_update.company_rating
+    FROM jobs_to_update
+    WHERE jobs.id = jobs_to_update.id;
+
+    DROP TABLE jobs_to_add;
+    &#34;&#34;&#34;
+    sql_insert_tags = &#34;&#34;&#34;
+    INSERT INTO tags (id_job, job_tag)
+    SELECT 
+        new.id_job,
+        new.job_tag
+    FROM tags_to_add AS new
+    LEFT JOIN tags ON tags.id_job = new.id_job
+    WHERE tags.id_job IS NULL;
+
+    DROP TABLE tags_to_add;
+    &#34;&#34;&#34;
+    conn = psycopg2.connect(
+        dbname=creds[&#34;database&#34;],
+        user=creds[&#34;username&#34;],
+        password=creds[&#34;password&#34;],
+        host=creds[&#34;host&#34;]
+    )
+
+
+    with conn:
+        with conn.cursor() as cur:
+            cur.execute(sql_insert_and_update_jobs)
+            cur.execute(sql_insert_tags)</code></pre>
+</details>
+</dd>
+<dt id="indeed_scraping.parse_indeed_soup"><code class="name flex">
+<span>def <span class="ident">parse_indeed_soup</span></span>(<span>soup_list, indeed_country)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parse the indeed offers to readable pandas DataFrame.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>soup_list</code></strong></dt>
+<dd>list of html strings to be parsed.</dd>
+<dt><strong><code>indeed_country</code></strong></dt>
+<dd>2-length string country to be used in url</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>df_jobs</code></dt>
+<dd>panda DataFrame with an indeed offer and overall information.</dd>
+<dt><code>db_tags</code></dt>
+<dd>panda DataFrame with job tags such as contract type, salary and more.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parse_indeed_soup(soup_list, indeed_country):
+    &#34;&#34;&#34;Parse the indeed offers to readable pandas DataFrame.
+
+    Args:
+        soup_list: list of html strings to be parsed.
+        indeed_country: 2-length string country to be used in url
+    
+    Returns:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    &#34;&#34;&#34;
+    id_list = []
+    job_title_list = []
+    company_name_list = []
+    job_location_list = []
+    description_snippet_list = []
+    rating_list = []
+    scraped_at_list = []
+    url_list = []
+    list_dict_tag = []
+
+    for s in soup_list:
+        soup_beacon = s.find_all(&#34;div&#34;, {&#34;class&#34;:&#34;job_seen_beacon&#34;})
+        for soup in soup_beacon:
+            id_ = soup.a[&#34;data-jk&#34;]
+
+            job_title = soup.find(&#34;span&#34;, {&#34;title&#34;:True})
+            company_name = soup.find(&#34;span&#34;, {&#34;class&#34;:&#34;companyName&#34;})
+            job_location = soup.find(&#34;div&#34;, {&#34;class&#34;:&#34;companyLocation&#34;})
+            rating = soup.find(&#34;span&#34;, {&#34;class&#34;:&#34;ratingNumber&#34;})
+            scraped_at = datetime.datetime.now().replace(microsecond=0)
+            url = f&#39;https://{indeed_country}.indeed.com/viewjob?jk={id_}&#39;
+            
+            id_list.append(id_)
+            url_list.append(url)
+            
+            if job_title:
+                job_title_list.append(job_title.text)
+            else:
+                job_title_list.append(None)
+
+            if company_name:
+                company_name_list.append(company_name.text)
+            else:
+                company_name_list.append(None)
+
+            if job_location:
+                job_location_list.append(job_location.text)
+            else:
+                job_location_list.append(None)
+
+            if rating:
+                rating_list.append(rating.text)
+            else:
+                rating_list.append(None)
+
+            scraped_at_list.append(scraped_at)
+
+            # Job tags
+            soup_tag = soup.find_all(&#34;div&#34;, {&#34;class&#34;:&#34;attribute_snippet&#34;})
+            for ele in soup_tag:
+                list_dict_tag.append(
+                    {
+                        &#34;id_job&#34;:id_,
+                        &#34;job_tag&#34;:ele.text.replace(&#39;\xa0&#39;, &#39; &#39;)
+                    }
+                )
+
+            description_snippet = soup.find(&#34;div&#34;, {&#34;class&#34;:&#34;job-snippet&#34;})
+
+
+            if description_snippet:
+                description_snippet_list.append(description_snippet.text.strip().replace(u&#39;\xa0&#39;, u&#39; &#39;))
+            else:
+                description_snippet_list.append(None)
+
+    dict_jobs = {
+        &#34;id&#34;:id_list,
+        &#34;job_title&#34;:job_title_list,
+        &#34;company_name&#34;:company_name_list,
+        &#34;job_location&#34;:job_location_list,
+        &#34;description_snippet&#34;:description_snippet_list,
+        &#34;company_rating&#34;:rating_list,
+        &#34;scraped_at&#34;:scraped_at_list,
+        &#34;url&#34;:url_list
+    }
+
+    df_jobs = pd.DataFrame(dict_jobs)
+    df_jobs = df_jobs.drop_duplicates(subset=&#39;id&#39;)
+    df_jobs[&#34;company_rating&#34;] = df_jobs[&#34;company_rating&#34;].str.replace(&#34;,&#34;,&#34;.&#34;).astype(&#34;float&#34;)
+    
+    df_tags = pd.DataFrame(list_dict_tag)
+    df_tags = df_tags.drop_duplicates(subset=[&#39;id_job&#39;, &#39;job_tag&#39;])
+    
+    return df_jobs, df_tags</code></pre>
+</details>
+</dd>
+<dt id="indeed_scraping.scrap_indeed_description"><code class="name flex">
+<span>def <span class="ident">scrap_indeed_description</span></span>(<span>id_offers_to_scrap, url_offers_to_scrap, headless=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scrap indeed description using chrome browser.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id_offers_to_scrap</code></strong></dt>
+<dd>word that will be searched in indeed.</dd>
+<dt><strong><code>url_offers_to_scrap</code></strong></dt>
+<dd>age of offer in days.</dd>
+<dt><strong><code>headless</code></strong></dt>
+<dd>whether to open a chrome browser or not, default set to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>df_description</code></dt>
+<dd>pandas DataFrame id, url and the verbose description of an offer.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<p>This example will scrap the full description of those 2 offers id, note the fr country in the url. </p>
+<p>scrap_indeed_description(
+['24beaf6498294e77', '60c4fa9e88ed2de9'],
+['https://fr.indeed.com/viewjob?jk=24beaf6498294e77','https://fr.indeed.com/viewjob?jk=60c4fa9e88ed2de9'],
+False)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def scrap_indeed_description(id_offers_to_scrap, url_offers_to_scrap, headless=True):
+    &#34;&#34;&#34;Scrap indeed description using chrome browser.
+
+    Args:
+        id_offers_to_scrap: word that will be searched in indeed.
+        url_offers_to_scrap: age of offer in days.
+        headless: whether to open a chrome browser or not, default set to True.
+    
+    Returns:
+        df_description: pandas DataFrame id, url and the verbose description of an offer.
+
+    Example:
+        This example will scrap the full description of those 2 offers id, note the fr country in the url. 
+
+        scrap_indeed_description(
+            [&#39;24beaf6498294e77&#39;, &#39;60c4fa9e88ed2de9&#39;], 
+            [&#39;https://fr.indeed.com/viewjob?jk=24beaf6498294e77&#39;,&#39;https://fr.indeed.com/viewjob?jk=60c4fa9e88ed2de9&#39;], 
+            False)
+
+    &#34;&#34;&#34;
+    chrome_options = Options()
+    chrome_options.add_argument(&#34;--disable-gpu&#34;)
+    chrome_options.add_argument(&#34;window-size=1024,768&#34;)
+    chrome_options.add_argument(&#34;--no-sandbox&#34;)
+    if headless:
+        chrome_options.add_argument(&#34;--headless&#34;)
+    user_agent = &#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36&#39;
+    chrome_options.add_argument(f&#39;user-agent={user_agent}&#39;)
+
+    s = ChromeService(ChromeDriverManager().install())
+
+    driver = webdriver.Chrome(service=s, options=chrome_options)
+    
+    description_verbose_list = []
+    
+    cookies_clicked_already = False
+    for url in url_offers_to_scrap:     
+        driver.get(url)
+        html_text = driver.page_source
+        
+        soup = BeautifulSoup(html_text, &#39;html.parser&#39;)   
+        
+
+        if not cookies_clicked_already:
+            button = None
+            
+            for button in soup.find_all(&#34;button&#34;):
+                if &#34;All Cookies&#34; in button.text or &#34;les cookies&#34; in button.text:
+                    break
+            if button:
+                if button.attrs.get(&#34;id&#34;):
+                    button_class = button.attrs[&#34;id&#34;]
+                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, f&#39;button[id=&#34;{button_class}&#34;]&#39;))).click()
+                    seconds = 3 + randrange(5, 11)/10
+                    time.sleep(seconds)
+            cookies_clicked_already = True
+
+        soup_description = soup.find_all(&#34;div&#34;,{&#34;id&#34;:&#34;jobDescriptionText&#34;})
+
+        for ele in soup_description:
+            if ele:
+                description_verbose_list.append(ele.text.replace(u&#39;\xa0&#39;, u&#39; &#39;))
+        if not ele:
+            description_verbose_list.append(None)
+        seconds = 3 + randrange(5, 11)/10
+        time.sleep(seconds)
+    driver.close()
+        
+    dict_description = {
+        &#34;id&#34;:id_offers_to_scrap,
+        &#34;url&#34;:url_offers_to_scrap,
+        &#34;description_verbose&#34;:description_verbose_list
+    }
+
+    df_description = pd.DataFrame(dict_description)
+    return df_description</code></pre>
+</details>
+</dd>
+<dt id="indeed_scraping.scrap_offer_indeed"><code class="name flex">
+<span>def <span class="ident">scrap_offer_indeed</span></span>(<span>list_keyword, offer_age, indeed_country, headless=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scrap indeed offers using chrome browser.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>list_keyword</code></strong></dt>
+<dd>word that will be searched in indeed.</dd>
+<dt><strong><code>offer_age</code></strong></dt>
+<dd>age of offer in days.</dd>
+<dt><strong><code>indeed_country</code></strong></dt>
+<dd>2-length string country to be used in url.</dd>
+<dt><strong><code>headless</code></strong></dt>
+<dd>whether to open a chrome browser or not, default set to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>soup_list</code></dt>
+<dd>list of html strings to be parsed.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<p>This example will scrap offers from the last 3 days of web developper, data analyst in the United Kingdom. </p>
+<p>scrap_offer_indeed(["web developper", "data analyst"], 3, "uk", False)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def scrap_offer_indeed(list_keyword, offer_age, indeed_country, headless=True):
+    &#34;&#34;&#34;Scrap indeed offers using chrome browser.
+
+    Args:
+        list_keyword: word that will be searched in indeed.
+        offer_age: age of offer in days.
+        indeed_country: 2-length string country to be used in url.
+        headless: whether to open a chrome browser or not, default set to True.
+    
+    Returns:
+        soup_list: list of html strings to be parsed.
+
+    Example:
+        This example will scrap offers from the last 3 days of web developper, data analyst in the United Kingdom. 
+
+        scrap_offer_indeed([&#34;web developper&#34;, &#34;data analyst&#34;], 3, &#34;uk&#34;, False)
+
+    &#34;&#34;&#34;
+    chrome_options = Options()
+    chrome_options.add_argument(&#34;--disable-gpu&#34;)
+    chrome_options.add_argument(&#34;window-size=1024,768&#34;)
+    chrome_options.add_argument(&#34;--no-sandbox&#34;)
+    if headless:
+        chrome_options.add_argument(&#34;--headless&#34;)
+    user_agent = &#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36&#39;
+    chrome_options.add_argument(f&#39;user-agent={user_agent}&#39;)
+    
+    s = ChromeService(ChromeDriverManager().install())
+                      
+    driver = webdriver.Chrome(service=s, options=chrome_options)
+    cookies_clicked_already = False
+    soup_list = []
+    
+    for keyword in list_keyword:
+        url_base = f&#34;https://{indeed_country}.indeed.com&#34;
+        url_param = f&#34;/jobs?q={keyword}&amp;fromage={offer_age}&#34;
+
+        while url_param:
+            url = url_base + url_param
+            driver.get(url)
+
+            html_text = driver.page_source
+            soup = BeautifulSoup(html_text, &#39;html.parser&#39;)
+
+            if not cookies_clicked_already:
+                for button in soup.find_all(&#34;button&#34;):
+                    if &#34;All Cookies&#34; in button.text or &#34;les cookies&#34; in button.text:
+                        break
+                if button.attrs.get(&#34;id&#34;):
+                    button_class = button.attrs[&#34;id&#34;]
+                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, f&#39;button[id=&#34;{button_class}&#34;]&#39;))).click()
+                    seconds = 3 + randrange(5, 11)/10
+                    time.sleep(seconds)
+                cookies_clicked_already = True
+
+            html_text = driver.page_source
+            soup = BeautifulSoup(html_text, &#39;html.parser&#39;)
+
+            param = soup.find(&#34;nav&#34;, {&#34;role&#34;:&#34;navigation&#34;}).find(&#34;a&#34;, {&#34;aria-label&#34;:&#34;Next Page&#34;}) 
+            if param:
+                url_param = param[&#34;href&#34;]
+            else:
+                url_param = None
+            soup_list.append(soup)
+    driver.close()
+    return soup_list</code></pre>
+</details>
+</dd>
+<dt id="indeed_scraping.update_indeed_description_verbose"><code class="name flex">
+<span>def <span class="ident">update_indeed_description_verbose</span></span>(<span>df_description)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update description_verbose rows in the jobs table given a .json connection file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df_jobs</code></strong></dt>
+<dd>panda DataFrame with an indeed offer and overall information.</dd>
+<dt><strong><code>db_tags</code></strong></dt>
+<dd>panda DataFrame with job tags such as contract type, salary and more.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_indeed_description_verbose(df_description):
+    &#34;&#34;&#34;Update description_verbose rows in the jobs table given a .json connection file.
+
+    Args:
+        df_jobs: panda DataFrame with an indeed offer and overall information.
+        db_tags: panda DataFrame with job tags such as contract type, salary and more.
+    
+    &#34;&#34;&#34;
+    with open(&#34;postgresql_credentials.json&#34;) as f:
+        creds = json.load(f)
+    
+    conn_string = f&#39;postgresql://{creds[&#34;username&#34;]}:{creds[&#34;password&#34;]}@{creds[&#34;host&#34;]}/{creds[&#34;database&#34;]}&#39;
+
+    engine = create_engine(conn_string)
+    
+    with engine.begin() as conn_alchemy:
+        df_description.to_sql(&#39;description_verbose_to_update&#39;, conn_alchemy, if_exists=&#39;replace&#39;)
+        
+    conn = psycopg2.connect(
+        dbname=creds[&#34;database&#34;],
+        user=creds[&#34;username&#34;],
+        password=creds[&#34;password&#34;],
+        host=creds[&#34;host&#34;]
+    )
+
+
+    with conn:
+        with conn.cursor() as cur:
+            sql_update_description_verbose = &#34;&#34;&#34;
+            UPDATE jobs
+                SET description_verbose = d.description_verbose
+            FROM description_verbose_to_update AS d
+            WHERE jobs.id = d.id;
+            
+            DROP TABLE description_verbose_to_update;
+            &#34;&#34;&#34;
+            cur.execute(sql_update_description_verbose)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="indeed_scraping.get_id_and_url_indeed_description_to_scrap" href="#indeed_scraping.get_id_and_url_indeed_description_to_scrap">get_id_and_url_indeed_description_to_scrap</a></code></li>
+<li><code><a title="indeed_scraping.insert_and_update_table" href="#indeed_scraping.insert_and_update_table">insert_and_update_table</a></code></li>
+<li><code><a title="indeed_scraping.parse_indeed_soup" href="#indeed_scraping.parse_indeed_soup">parse_indeed_soup</a></code></li>
+<li><code><a title="indeed_scraping.scrap_indeed_description" href="#indeed_scraping.scrap_indeed_description">scrap_indeed_description</a></code></li>
+<li><code><a title="indeed_scraping.scrap_offer_indeed" href="#indeed_scraping.scrap_offer_indeed">scrap_offer_indeed</a></code></li>
+<li><code><a title="indeed_scraping.update_indeed_description_verbose" href="#indeed_scraping.update_indeed_description_verbose">update_indeed_description_verbose</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
