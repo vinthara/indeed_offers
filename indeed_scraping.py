@@ -432,7 +432,7 @@ if __name__ == '__main__':
         df_jobs, df_tags = parse_indeed_soup(soup_list, indeed_country)
         insert_and_update_table(df_jobs, df_tags)
 
-    for i in range(130):
+    for i in range(10):
         id_offers_to_scrap, url_offers_to_scrap = get_id_and_url_indeed_description_to_scrap(15)
         if id_offers_to_scrap:
             df_description = scrap_indeed_description(id_offers_to_scrap, url_offers_to_scrap, False)
